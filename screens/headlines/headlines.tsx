@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   View,
   ActivityIndicator,
@@ -13,22 +13,28 @@ import {fetchHeadlines} from '../../redux/actions/headlinesAction';
 import uuid from 'react-native-uuid';
 import styles from './styles';
 import NewsArticle from '../../components/NewsArticle';
+import NewsTags from '../../components/NewsTags';
+import { NewsCategory } from '../../helper/constants';
 
 const Headlines = () => {
   const dispatch = useAppDispatch();
   const headlines = useSelector(getHeadlines);
   const loading = useSelector(isLoading);
-
+  const [selectedCategory,setSelectedCategory] = useState(NewsCategory.technology)
   useEffect(() => {
-    dispatch(fetchHeadlines());
-  }, [dispatch]);
+    dispatch(fetchHeadlines(selectedCategory));
+  }, [dispatch,selectedCategory]);
 
   const handleRefresh = useCallback(() => {
-    dispatch(fetchHeadlines());
-  }, [dispatch]);
-
+    dispatch(fetchHeadlines(selectedCategory));
+  }, [dispatch,selectedCategory]);
+ 
   return (
     <View style={[styles.container]}>
+     <NewsTags 
+      selectedCategory={selectedCategory}
+      setSelectedCategory={setSelectedCategory}
+     />
       {loading ? (
         <ActivityIndicator />
       ) : (
