@@ -1,15 +1,11 @@
 import {createReducer, PayloadAction} from '@reduxjs/toolkit';
 import {fetchHeadlines} from '../actions/headlinesAction';
 
-interface IHeadlineState {
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
+export interface IHeadlineState {
+  [key: string]: string;
 }
 
-interface IInitialState {
+export interface IInitialState {
   headlines: IHeadlineState[];
 }
 

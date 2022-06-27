@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,6 +17,7 @@ import {
   Text,
   useColorScheme,
   View,
+  ActivityIndicator,
 } from 'react-native';
 
 import {
@@ -27,15 +28,20 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { Provider } from 'react-redux';
-import Headlines from './screens/headlines';
-import store from './redux/store';
+import {Provider} from 'react-redux';
+import Headlines from './screens/headlines/headlines';
+import {store, persistor} from './redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
 const App: React.FC = () => {
-    return(
-      <Provider store={store}>
-      <Headlines/>
-      </Provider>
-    )
-}
+  return (
+    <Provider store={store}>
+      <PersistGate
+        loading={<ActivityIndicator size={'large'} color={'#000'} />}
+        persistor={persistor}>
+        <Headlines />
+      </PersistGate>
+    </Provider>
+  );
+};
 
-export default App
+export default App;

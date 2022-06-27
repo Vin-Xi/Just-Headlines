@@ -6,6 +6,7 @@ export const actionTypes={
 };
 
 const url = 'https://newsapi.org/v2/top-headlines?category=technology&language=en'
+
 export const fetchHeadlines = createAsyncThunk(actionTypes.GET_HEADLINES,async (payload,{rejectWithValue})=>{
     const response= await axios({
         method:'GET',
