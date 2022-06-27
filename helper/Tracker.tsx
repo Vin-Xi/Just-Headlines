@@ -1,0 +1,1 @@
+export const Tracker = (action:string) => [action] 
