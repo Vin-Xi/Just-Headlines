@@ -1,10 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
-import headlines from './headlines';
-import contentView from './contentView';
-
-import {IHeadlineState} from '../redux/reducers/headlinesReducer';
+import headlines from '../Headlines';
+import contentView from '../ContentView';
+import {IHeadlineState} from '../../redux/reducers/headlinesReducer';
 
 export type RootStackParamList = {
   Headlines: undefined;
@@ -19,7 +18,19 @@ const Stack = createSharedElementStackNavigator();
 const RootNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{
+        headerStyle:{
+          backgroundColor:'#343434',
+          height:40,
+          
+        },
+        headerTintColor:'#dcdcdc',
+        headerTitleStyle:{
+          fontWeight:'bold',
+        },
+        headerTitleAlign:'center',
+        
+      }}>
         <Stack.Screen name="Headlines" component={headlines} />
         <Stack.Screen
           name="Detail"

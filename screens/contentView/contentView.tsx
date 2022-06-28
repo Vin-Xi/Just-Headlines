@@ -9,8 +9,8 @@ import {
   ScrollView,
 } from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../Navigation';
-import styles from './style';
+import {RootStackParamList} from '../Navigation/Navigation';
+import styles from './styles'
 import {SharedElement} from 'react-navigation-shared-element';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;

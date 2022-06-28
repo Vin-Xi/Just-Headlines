@@ -6,7 +6,7 @@ import {IHeadlineState} from '../../redux/reducers/headlinesReducer';
 import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {SharedElement} from 'react-navigation-shared-element';
-import {RootStackParamList} from '../../screens/Navigation';
+import {RootStackParamList} from '../../screens/Navigation/Navigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<

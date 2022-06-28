@@ -16,6 +16,7 @@ const boxShadow:any = Platform.select({
 
 export default StyleSheet.create({
     container:{
+        marginTop:0,
         height:240,
         marginBottom:18,
         backgroundColor:'#eee',

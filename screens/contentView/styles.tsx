@@ -10,8 +10,8 @@ export default StyleSheet.create({
   image: {
     height: 500,
     width: '100%',
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   crossContainer: {
     position: 'absolute',
