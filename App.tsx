@@ -8,37 +8,20 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  ActivityIndicator,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
+import React from 'react';
+import {ActivityIndicator} from 'react-native';
 import {Provider} from 'react-redux';
-import Headlines from './screens/headlines/headlines';
 import {store, persistor} from './redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
+import RootNavigation from './screens/Navigation';
+
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate
         loading={<ActivityIndicator size={'large'} color={'#000'} />}
         persistor={persistor}>
-        <Headlines />
+        <RootNavigation />
       </PersistGate>
     </Provider>
   );

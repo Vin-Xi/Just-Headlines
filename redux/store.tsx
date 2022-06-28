@@ -15,6 +15,7 @@ export const store = configureStore({
   reducer: {
     headlines: persistReducer<IInitialState>(persistConfig, headlinesReducer),
     status: statusReducer,
+
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({serializableCheck: false}),

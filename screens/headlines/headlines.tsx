@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   FlatList,
   RefreshControl,
+  useColorScheme,
 } from 'react-native';
 import {useAppDispatch} from '../../redux/store';
 import {useSelector} from 'react-redux';
@@ -28,9 +29,10 @@ const Headlines = () => {
   const handleRefresh = useCallback(() => {
     dispatch(fetchHeadlines(selectedCategory));
   }, [dispatch,selectedCategory]);
- 
+  const backgroundColor = useColorScheme() === 'dark' ? '#000' : '#fff';
+
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container,{backgroundColor}]}>
      <NewsTags 
       selectedCategory={selectedCategory}
       setSelectedCategory={setSelectedCategory}
@@ -42,7 +44,7 @@ const Headlines = () => {
           keyExtractor={() => uuid.v4()?.toString()}
           showsVerticalScrollIndicator={false}
           data={headlines}
-          renderItem={({item, index}: any) => <NewsArticle headline={item} />}
+          renderItem={({item,index}: any) => <NewsArticle headline={item} index={index} />}
           style={styles.list}
           refreshControl={
             <RefreshControl refreshing={loading} onRefresh={handleRefresh} />
