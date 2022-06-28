@@ -27,7 +27,7 @@ const ContentView: React.FC<{
   const readMoreBgColor = useColorScheme() === 'dark' ? '#222' : '#ddd';
 
   const handleURLPress = () => {
-    undefined;
+    navigation.navigate('Web View',{url:headlines?.url})
   };
   console.log(`headline#${headlineIndex}-image`);
 

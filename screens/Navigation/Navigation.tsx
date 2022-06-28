@@ -4,13 +4,16 @@ import {createSharedElementStackNavigator} from 'react-navigation-shared-element
 import headlines from '../Headlines';
 import contentView from '../ContentView';
 import {IHeadlineState} from '../../redux/reducers/headlinesReducer';
-
+import WebViewScreen from '../WebView/webView';
 export type RootStackParamList = {
   Headlines: undefined;
   Detail: {
     headlines: IHeadlineState;
     headlineIndex: number;
   };
+  'Web View':{
+    url:string
+  }
 };
 
 const Stack = createSharedElementStackNavigator();
@@ -46,6 +49,7 @@ const RootNavigation = () => {
             },
           }}
         />
+        <Stack.Screen name="Web View" component={WebViewScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
