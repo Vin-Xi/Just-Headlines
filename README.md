@@ -15,5 +15,5 @@ Displays current news headlines and details. Built with API Support!
 ## App Preview
 <h3 align="center"> Google Pixel 6 Emulator SDK 31 </h3>
 <p align="center"> 
-  <img src="https://github.com/Vin-Xi/Just-Headlines/blob/main/Animation.gif?raw=true">
+  <img src="https://github.com/Vin-Xi/Just-Headlines/blob/main/ezgif-5-58e56905aa.gif">
 </p>
